@@ -1,5 +1,6 @@
 {
   "HOME": "/",
   "SIGNUP": "/signup",
-  "DRAGGABLE": "/draggable"
+  "DRAGGABLE": "/draggable",
+  "GIGS": "/bands/:bandId/gigs"
 }
