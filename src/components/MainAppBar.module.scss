@@ -1,0 +1,24 @@
+.grow {
+  flex-grow: 1;
+  .menuButton{
+    margin-right: 16px;
+  }
+  .title{
+    display: none;
+    @media (min-width: 600px){
+      display: block;
+    }
+  }
+  .sectionDesktop{
+    display: none;
+    @media (min-width: 960px) {
+      display: flex;
+    }
+  }
+  .sectionMobile{
+    display: flex;
+    @media (min-width: 960px) {
+      display: none;
+    }
+  }
+}
