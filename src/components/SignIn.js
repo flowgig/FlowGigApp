@@ -101,7 +101,6 @@ class SignIn extends Component {
   }
 }
 
-// Metode som binder state til lokale props
 const mapStateToProps = state => ({
     user: state.user,
 });

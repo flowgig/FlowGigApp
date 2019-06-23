@@ -8,9 +8,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Root from './containers/Root';
 import theme from './theme';
 import { configureStore, history } from './store/configureStore';
-import './App.module.scss';
 
 const store = configureStore();
+
 
 render(
   <ThemeProvider theme={theme}>
