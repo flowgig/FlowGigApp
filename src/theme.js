@@ -18,9 +18,9 @@ const theme = createMuiTheme({
     }
   },
   overrides: {
-    MuiAvatar: { // Name of the component ⚛️ / style sheet
-      colorDefault: { // Name of the rule
-        // backgroundColor: '#C32A22', // Some CSS
+    MuiAppBar: { // Name of the component ⚛️ / style sheet
+      colorPrimary: { // Name of the rule
+         backgroundColor: '#272b2f', // Some CSS
       },
     },
   },
