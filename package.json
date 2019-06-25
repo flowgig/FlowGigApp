@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "clsx": "^1.0.4",
     "concurrently": "^4.1.0",
     "connected-react-router": "^6.4.0",
     "electron": "^5.0.3",
