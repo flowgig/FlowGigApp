@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import clsx from 'clsx';
 
 import AppBar from '@material-ui/core/AppBar';
+import Drawer from '@material-ui/core/Drawer';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -14,6 +19,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
+import { mainListItems, secondaryListItems } from './ListItems';
+
 import styles from './MainAppBar.module.scss';
 
 class MainAppBar extends Component {
@@ -25,14 +32,28 @@ class MainAppBar extends Component {
       isMenuOpen: false,
       isMobileMenuOpen: false,
       anchorEl: null,
-      mobileMoreAnchorEl: null
+      mobileMoreAnchorEl: null,
+      isDrawerOpen: false
     };
     //  this.handleTermsOfAgreementLinkClick = this.handleTermsOfAgreementLinkClick.bind(this);
     this.handleMenuClose = this.handleMenuClose.bind(this);
     this.handleMobileMenuClose = this.handleMobileMenuClose.bind(this);
     this.handleMobileMenuOpen = this.handleMobileMenuOpen.bind(this);
     this.handleProfileMenuOpen = this.handleProfileMenuOpen.bind(this);
+    this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
+    this.handleDrawerClose = this.handleDrawerClose.bind(this);
   }
+
+  handleDrawerOpen(){
+    this.setState({
+      isDrawerOpen: true
+    });
+  };
+  handleDrawerClose(){
+    this.setState({
+      isDrawerOpen: false
+    });
+  };
 
   setAnchorEl(element){
     this.setState({
@@ -127,18 +148,19 @@ class MainAppBar extends Component {
   render() {
     return (
       <div className={styles.grow}>
-        <AppBar position="static">
+        <AppBar position="absolute" className={clsx(styles.appBar, this.state.isDrawerOpen && styles.appBarShift)}>
           <Toolbar>
             <IconButton
               edge="start"
-              className={styles.menuButton}
+              className={clsx(styles.menuButton, this.state.isDrawerOpen && styles.menuButtonHidden)}
               color="inherit"
               aria-label="Open drawer"
+              onClick={this.handleDrawerOpen}
               >
               <MenuIcon />
             </IconButton>
             <Typography className={styles.title} variant="h6" noWrap>
-              Material-UI
+              FlowGig
             </Typography>
             <div className={styles.grow} />
             <div className={styles.sectionDesktop}>
@@ -176,6 +198,23 @@ class MainAppBar extends Component {
             </div>
           </Toolbar>
         </AppBar>
+        <Drawer
+          variant="permanent"
+          classes={{
+            paper: clsx(styles.drawerPaper, !this.state.isDrawerOpen && styles.drawerPaperClose),
+          }}
+          open={this.state.isDrawerOpen}
+          >
+          <div className={styles.toolbarIcon}>
+            <IconButton onClick={this.handleDrawerClose}>
+              <ChevronLeftIcon />
+            </IconButton>
+          </div>
+          <Divider />
+          <List>{mainListItems}</List>
+          <Divider />
+          <List>{secondaryListItems}</List>
+        </Drawer>
         {this.renderMobileMenu()}
         {this.renderMenu()}
       </div>
