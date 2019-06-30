@@ -1,53 +1,40 @@
+// Dependencies
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-
+import { connect } from 'react-redux';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
-import MainAppBar from '../components/MainAppBar';
 
+// Actions
+import { isLoggedIn } from '../actions/user';
+
+// Components
+import MainAppBar from '../components/MainAppBar';
 import Routes from '../Routes';
 
+// Stylesheets
 import styles from './Root.module.scss';
 
-
 class Root extends Component {
-  constructor(props) {
-    super(props);
-    this.props.history.listen((location, action) => {
-      this.setBodyClass(location);
-      this.setState({
-        isLoggedOut: this.isLoggedOut()
-      });
-    });
-    this.state = {
-      isLoggedOut: false
-    }
-  }
 
   componentDidMount(){
     this.setBodyClass();
-    this.setState({
-      isLoggedOut: this.isLoggedOut()
-    });
   }
 
-  setBodyClass(location) {
-    this.isLoggedOut(location) ? document.body.classList.add(styles.loggedOut) : document.body.classList.remove(styles.loggedOut);
+  componentDidUpdate(prevProps){
+    if (this.props.user !== prevProps.user){
+      this.setBodyClass();
+    }
   }
 
-  isLoggedOut(location) {
-    const pathName = location && location.pathname ? location.pathname : window.location.pathname;
-    const loggedOutPaths = ["signin", "signup"];
-    return loggedOutPaths.some(
-      loggedOutPath => pathName.includes(loggedOutPath)
-    );
+  setBodyClass() {
+    this.props.isLoggedIn() ? document.body.classList.remove(styles.loggedOut) : document.body.classList.add(styles.loggedOut);
   }
 
   render() {
     const { store, history } = this.props;
     return (
       <Provider store={store}>
-        { this.state.isLoggedOut ? null : <MainAppBar /> }
+        { this.props.isLoggedIn() ? <MainAppBar /> : null }
         <ConnectedRouter history={history}>
           <Routes />
         </ConnectedRouter>
@@ -56,4 +43,12 @@ class Root extends Component {
   }
 }
 
-export default connect(null)(Root);
+const mapStateToProps = state => ({
+  user: state.user,
+});
+
+const mapDispatchToProps = {
+  isLoggedIn
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Root);

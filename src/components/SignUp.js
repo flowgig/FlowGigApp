@@ -1,20 +1,27 @@
+// Dependencies
 import React, { Component } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
+// Material-UI Components
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import CreateIcon from '@material-ui/icons/Create';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import CreateIcon from '@material-ui/icons/Create';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
-import TermsOfServiceDialog from './TermsOfServiceDialog';
+// Constants
 import routes from '../constants/routes';
+
+// Components
+import TermsOfServiceDialog from './TermsOfServiceDialog';
+
+// Stylesheets
 import styles from './LoggedOut.module.scss';
 
 class SignUp extends Component {
@@ -98,7 +105,7 @@ class SignUp extends Component {
 							</Button>
 							<Grid container>
 								<Grid item>
-									<Link component={RouterLink} to={routes.SIGNIN} variant="body2">
+									<Link component={RouterLink} to={routes.HOME} variant="body2">
 										Already have an account? Sign in
 									</Link>
 								</Grid>

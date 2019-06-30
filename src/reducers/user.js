@@ -2,10 +2,7 @@ import {
     UPDATE_USER,
 } from '../actions/types';
 
-const initialState = {
-    name: '',
-    email: '',
-};
+const initialState = null;
 
 export default function (state = initialState, action) {
     switch (action.type) {

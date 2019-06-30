@@ -1,33 +1,42 @@
+// Dependencies
 import React, { Component } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 
+// Material-UI Components
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
+// Constants
 import routes from '../constants/routes';
+
+// Actions
+import { updateUser } from '../actions/user';
+
+// Stylesheets
 import styles from './LoggedOut.module.scss';
 
 class SignIn extends Component {
   constructor(props) {
     super(props);
-    this.state = { showTermsOfAgreement: false };
-    this.handleTermsOfAgreementLinkClick = this.handleTermsOfAgreementLinkClick.bind(this);
+    this.handleSignIn = this.handleSignIn.bind(this);
   }
 
-  handleTermsOfAgreementLinkClick() {
-    this.setState({
-      showTermsOfAgreement: true
-    })
+  handleSignIn(event) {
+    event.preventDefault();
+    this.props.updateUser({
+      name: 'testbruker',
+      email: 'test@epost.no'
+    });
   }
 
   render() {
@@ -45,7 +54,7 @@ class SignIn extends Component {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <form className={styles.form} noValidate>
+            <form className={styles.form} noValidate onSubmit={this.handleSignIn}>
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -102,7 +111,11 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = state => ({
-    user: state.user,
+  user: state.user,
 });
 
-export default connect(mapStateToProps)(SignIn);
+const mapDispatchToProps = {
+  updateUser
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
