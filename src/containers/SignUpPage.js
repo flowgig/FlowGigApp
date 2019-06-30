@@ -1,6 +1,8 @@
+// Dependencies
 import React, { Component } from 'react';
-import SignUp from '../components/SignUp';
 
+// Components
+import SignUp from '../components/SignUp';
 
 export default class SignUpPage extends Component {
   render() {

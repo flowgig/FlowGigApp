@@ -1,11 +1,12 @@
+// Dependencies
 import React, { Component } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 
+// Material-UI Components
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 
-import routes from '../constants/routes';
+// Stylesheets
 import styles from './LoggedOut.module.scss';
 
 class Dasboard extends Component {
@@ -32,7 +33,7 @@ class Dasboard extends Component {
 }
 
 const mapStateToProps = state => ({
-    user: state.user,
+  user: state.user,
 });
 
 export default connect(mapStateToProps)(Dasboard);

@@ -1,15 +1,12 @@
+// Dependencies
 import React, { Component } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
+// Actions
 import {fetchGigs} from '../actions/gigs';
 
-
 class Gigs extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.fetchGigs(this.props.bandId);
@@ -18,7 +15,7 @@ class Gigs extends Component {
   render() {
     return (
       <div>
-      Gigs
+        Gigs
       </div>
     );
   }

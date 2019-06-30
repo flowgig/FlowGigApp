@@ -1,16 +1,19 @@
+// Dependencies
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware, routerActions } from 'connected-react-router';
 import { createLogger } from 'redux-logger';
-import createRootReducer from '../reducers';
+
+// Actions
 import * as userActions from '../actions/user';
+
+// Reducers
+import createRootReducer from '../reducers';
 import type { counterStateType } from '../reducers/types';
 
 const history = createBrowserHistory();
-
 const rootReducer = createRootReducer(history);
-
 const configureStore = (initialState?: counterStateType) => {
   // Redux Configuration
   const middleware = [];
