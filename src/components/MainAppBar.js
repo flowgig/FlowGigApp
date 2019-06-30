@@ -1,26 +1,33 @@
+// Dependencies
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import clsx from 'clsx';
 
+// Material-UI Components
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import AppBar from '@material-ui/core/AppBar';
-import Drawer from '@material-ui/core/Drawer';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import IconButton from '@material-ui/core/IconButton';
+import List from '@material-ui/core/List';
+import MailIcon from '@material-ui/icons/Mail';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import MenuItem from '@material-ui/core/MenuItem';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
+// Actions
+import { logOut } from '../actions/user';
+
+// Components
 import { mainListItems, secondaryListItems } from './ListItems';
 
+// Stylesheets
 import styles from './MainAppBar.module.scss';
 
 class MainAppBar extends Component {
@@ -35,13 +42,13 @@ class MainAppBar extends Component {
       mobileMoreAnchorEl: null,
       isDrawerOpen: false
     };
-    //  this.handleTermsOfAgreementLinkClick = this.handleTermsOfAgreementLinkClick.bind(this);
     this.handleMenuClose = this.handleMenuClose.bind(this);
     this.handleMobileMenuClose = this.handleMobileMenuClose.bind(this);
     this.handleMobileMenuOpen = this.handleMobileMenuOpen.bind(this);
     this.handleProfileMenuOpen = this.handleProfileMenuOpen.bind(this);
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
     this.handleDrawerClose = this.handleDrawerClose.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
   }
 
   handleDrawerOpen(){
@@ -86,6 +93,10 @@ class MainAppBar extends Component {
     this.setMobileMoreAnchorEl(event.currentTarget);
   }
 
+  handleLogOut() {
+    this.props.logOut();
+  }
+
   renderMenu(){
     return (
       <Menu
@@ -99,6 +110,7 @@ class MainAppBar extends Component {
         >
         <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
         <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
+        <MenuItem onClick={this.handleLogOut}>Log out</MenuItem>
       </Menu>
     );
   }
@@ -222,4 +234,8 @@ class MainAppBar extends Component {
   }
 }
 
-export default connect(null)(MainAppBar);
+const mapDispatchToProps = {
+  logOut
+};
+
+export default connect(null, mapDispatchToProps)(MainAppBar);
