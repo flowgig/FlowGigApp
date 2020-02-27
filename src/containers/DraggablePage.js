@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DraggableList from '../components/DraggableList';
+import DraggableList from 'components/DraggableList';
 
 type Props = {};
 

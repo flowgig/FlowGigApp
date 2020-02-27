@@ -17,13 +17,13 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 // Constants
-import routes from '../constants/routes';
+import routes from 'constants/routes';
 
 // Actions
-import { updateUser } from '../actions/user';
+import { updateUser } from 'actions/user';
 
 // Stylesheets
-import styles from './LoggedOut.module.scss';
+import styles from 'components/LoggedOut.module.scss';
 
 class SignIn extends Component {
   constructor(props) {

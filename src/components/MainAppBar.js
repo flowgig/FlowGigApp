@@ -22,13 +22,13 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 // Actions
-import { logOut } from '../actions/user';
+import { logOut } from 'actions/user';
 
 // Components
-import { mainListItems, secondaryListItems } from './ListItems';
+import { mainListItems, secondaryListItems } from 'components/ListItems';
 
 // Stylesheets
-import styles from './MainAppBar.module.scss';
+import styles from 'components/MainAppBar.module.scss';
 
 class MainAppBar extends Component {
   constructor(props) {

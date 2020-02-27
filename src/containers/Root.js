@@ -5,14 +5,14 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 
 // Actions
-import { isLoggedIn } from '../actions/user';
+import { isLoggedIn } from 'actions/user';
 
 // Components
-import MainAppBar from '../components/MainAppBar';
-import Routes from '../Routes';
+import MainAppBar from 'components/MainAppBar';
+import Routes from 'Routes';
 
 // Stylesheets
-import styles from './Root.module.scss';
+import styles from 'containers/Root.module.scss';
 
 class Root extends Component {
 

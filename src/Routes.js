@@ -4,18 +4,18 @@ import {connect} from 'react-redux';
 import { Switch, Route } from 'react-router';
 
 // Constants
-import routes from './constants/routes';
+import routes from 'constants/routes';
 
 // Actions
-import { isLoggedIn } from './actions/user';
+import { isLoggedIn } from 'actions/user';
 
 // Components
-import App from './containers/App';
-import DashboardPage from './containers/DashboardPage';
-import DraggablePage from './containers/DraggablePage';
-import GigsPage from './containers/GigsPage';
-import SignInPage from './containers/SignInPage';
-import SignUpPage from './containers/SignUpPage';
+import App from 'containers/App';
+import DashboardPage from 'containers/DashboardPage';
+import DraggablePage from 'containers/DraggablePage';
+import GigsPage from 'containers/GigsPage';
+import SignInPage from 'containers/SignInPage';
+import SignUpPage from 'containers/SignUpPage';
 
 class Routes extends Component {
   renderLoggedInRoutes(){

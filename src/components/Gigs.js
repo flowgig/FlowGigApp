@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 // Actions
-import {fetchGigs} from '../actions/gigs';
+import {fetchGigs} from 'actions/gigs';
 
 class Gigs extends Component {
 

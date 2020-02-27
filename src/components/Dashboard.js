@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 
 // Stylesheets
-import styles from './LoggedOut.module.scss';
+import styles from 'components/LoggedOut.module.scss';
 
 class Dasboard extends Component {
   constructor(props) {

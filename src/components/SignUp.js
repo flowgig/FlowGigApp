@@ -16,13 +16,13 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 // Constants
-import routes from '../constants/routes';
+import routes from 'constants/routes';
 
 // Components
-import TermsOfServiceDialog from './TermsOfServiceDialog';
+import TermsOfServiceDialog from 'components/TermsOfServiceDialog';
 
 // Stylesheets
-import styles from './LoggedOut.module.scss';
+import styles from 'components/LoggedOut.module.scss';
 
 class SignUp extends Component {
 	constructor(props) {
