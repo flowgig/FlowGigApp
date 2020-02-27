@@ -1,4 +1,4 @@
-import {UPDATE_USER} from '../actions/types';
+import {UPDATE_USER} from 'constants/types';
 
 export const updateUser = (user) => dispatch => {
     dispatch({

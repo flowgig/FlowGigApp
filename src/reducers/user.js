@@ -1,6 +1,4 @@
-import {
-    UPDATE_USER,
-} from '../actions/types';
+import { UPDATE_USER } from 'constants/types';
 
 const initialState = null;
 

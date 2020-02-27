@@ -1,6 +1,4 @@
-import {
-  FETCH_GIGS,
-} from '../actions/types';
+import { FETCH_GIGS } from 'constants/types';
 
 const initialState = {
   data: []

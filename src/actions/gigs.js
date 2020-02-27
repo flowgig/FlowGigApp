@@ -1,7 +1,5 @@
-import {
-  FETCH_GIGS
-} from './types';
-import {getFlowGigApiUrl} from "../helpers/apiUrlHelpers";
+import { FETCH_GIGS } from 'constants/types';
+import {getFlowGigApiUrl} from "helpers/apiUrlHelpers";
 
 export const fetchGigs = (bandId) => dispatch => {
   if (bandId){
