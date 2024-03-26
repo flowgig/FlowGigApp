@@ -1,8 +1,0 @@
-{
-  "HOME": "/",
-  "SIGNUP": "/signup",
-  "DRAGGABLE": "/draggable",
-  "BANDS": "/bands",
-  "BAND": "/bands/:bandId",
-  "GIGS": "/bands/:bandId/gigs"
-}
