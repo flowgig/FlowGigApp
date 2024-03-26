@@ -1,14 +1,29 @@
-import '@/app/global.css'
+// Dependencies
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+
+// Stylesheets
+import "@/app/global.css";
+
+// Theme
+import theme from "@/theme";
 
 export const metadata = {
-    title: 'Laravel',
-}
+    title: "FlowGig"
+};
 const RootLayout = ({ children }) => {
     return (
         <html lang="en">
-            <body className="antialiased">{children}</body>
+            <body>
+                <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+                    <ThemeProvider theme={theme}>
+                        <CssBaseline />
+                        {children}
+                    </ThemeProvider>
+                </AppRouterCacheProvider>
+            </body>
         </html>
-    )
-}
+    );
+};
 
-export default RootLayout
+export default RootLayout;
